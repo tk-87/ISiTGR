@@ -18,7 +18,7 @@ endif
 ifeq "$(ifortErr)" "0"
 
 #Intel compiler
-F90C     = ifort
+F90C     = gfortran
 FFLAGS = -W0 -WB -fpp
 DEBUGFLAGS = -g -check all -check noarg_temp_created -traceback -fpp -fpe0
 

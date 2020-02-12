@@ -5,7 +5,7 @@ BUILD ?= MPI
 #set BUILD to MPI to force MPI, should be set in ../Makefile
 
 #For ISiTGR CC = c compiler
-CC = icc
+CC = gcc
 
 ifortErr = $(shell which ifort >/dev/null; echo $$?)
 
@@ -13,7 +13,7 @@ ifortErr = $(shell which ifort >/dev/null; echo $$?)
 ifeq "$(ifortErr)" "0"
 #ifort; Can remove -xHost if your cluster is not uniform, or specify specific processor optimizations -x...
 
-F90C     = ifort
+F90C     = gfortran
 #Can use this if mpif90 not picking up ifort:
 #MPIF90C ?= mpif90 -f90=ifort
 
