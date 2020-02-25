@@ -27,9 +27,9 @@ do
     mv test_lenspotentialCls.dat project/${today}/${param}_test_lenspotentialCls.dat
     mv test_matterpower.dat project/${today}/${param}_test_matterpower.dat
     mv test_params.ini project/${today}/${param}_test_params.ini
-    mv test_scalCls.dat project/${today}/${param}_test_scalCls.dat
-    mv test_scalCovCls.dat project/${today}/${param}_test_scalCovCls.dat
     mv test_transfer_out.dat project/${today}/${param}_test_transfer_out.dat
+    rm test_scalCls.dat
+    rm test_scalCovCls.dat 
 
 done
 
