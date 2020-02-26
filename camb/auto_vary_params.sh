@@ -13,7 +13,7 @@ sed -i -e "6s/.*/Parameterization_BIN = 2/" params_ISiTGR_BIN.ini
 
 for i in {1..3}
 do
-    for j in {1..5}
+    for j in {1..9}
     do
         n=0.$j
 
