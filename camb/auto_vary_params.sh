@@ -13,24 +13,24 @@ sed -i -e "6s/.*/Parameterization_BIN = 2/" params_ISiTGR_BIN.ini
 
 for i in {1..3}
 do
-    for j in {1..3}
+    for j in {1..5}
     do
         n=0.$j
 
         if [ $i -eq 1 ]
         then
 
-            name="mu-${n}_sig-$n"
+            name="mu-${n}_sig-${n}"
 
-            sed -i -e "27s/.*/mu1 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "28s/.*/mu2 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "29s/.*/mu3 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "30s/.*/mu4 = $n/" params_ISiTGR_BIN.ini
+            sed -i -e "27s/.*/mu1 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "28s/.*/mu2 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "29s/.*/mu3 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "30s/.*/mu4 = ${n}/" params_ISiTGR_BIN.ini
 
-            sed -i -e "39s/.*/Sigma1 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "40s/.*/Sigma2 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "41s/.*/Sigma3 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "42s/.*/Sigma4 = $n/" params_ISiTGR_BIN.ini
+            sed -i -e "39s/.*/Sigma1 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "40s/.*/Sigma2 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "41s/.*/Sigma3 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "42s/.*/Sigma4 = ${n}/" params_ISiTGR_BIN.ini
 
         elif [ $i -eq 2 ]
         then
@@ -42,12 +42,15 @@ do
 
             name="mu-${n}_sig-0.1"
 
-            sed -i -e "39s/.*/Sigma1 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "27s/.*/mu1 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "28s/.*/mu2 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "29s/.*/mu3 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "30s/.*/mu4 = ${n}/" params_ISiTGR_BIN.ini
 
-            sed -i -e "27s/.*/mu1 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "28s/.*/mu2 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "29s/.*/mu3 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "30s/.*/mu4 = $n/" params_ISiTGR_BIN.ini
+            sed -i -e "39s/.*/Sigma1 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "40s/.*/Sigma2 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "41s/.*/Sigma3 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "42s/.*/Sigma4 = 0.1/" params_ISiTGR_BIN.ini
 
         elif [ $i -eq 3 ]
         then
@@ -57,14 +60,17 @@ do
                 continue
             fi
 
-            name="mu-0.1_sig-$n"
+            name="mu-0.1_sig-${n}"
 
             sed -i -e "27s/.*/mu1 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "28s/.*/mu2 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "29s/.*/mu3 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "30s/.*/mu4 = 0.1/" params_ISiTGR_BIN.ini
 
-            sed -i -e "39s/.*/Sigma1 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "40s/.*/Sigma2 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "41s/.*/Sigma3 = $n/" params_ISiTGR_BIN.ini
-            sed -i -e "42s/.*/Sigma4 = $n/" params_ISiTGR_BIN.ini
+            sed -i -e "39s/.*/Sigma1 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "40s/.*/Sigma2 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "41s/.*/Sigma3 = ${n}/" params_ISiTGR_BIN.ini
+            sed -i -e "42s/.*/Sigma4 = ${n}/" params_ISiTGR_BIN.ini
 
         fi
 
