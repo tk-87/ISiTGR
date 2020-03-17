@@ -1,7 +1,7 @@
 #!/bin/bash
 
 today=$(date +%Y-%m-%d_%H.%M)
-cd /home/tony/ISiTGR/camb/
+cd /home/tony/github/ISiTGR/camb/
 mkdir -p project/${today}/lensedCls
 mkdir -p project/${today}/lenspotentialCls
 mkdir -p project/${today}/matterpower
@@ -15,7 +15,7 @@ for i in {1..3}
 do
     for j in {1..9}
     do
-        n=0.$j
+        n=1.$j
 
         if [ $i -eq 1 ]
         then
@@ -40,17 +40,17 @@ do
                 continue
             fi
 
-            name="mu-${n}_sig-0.1"
+            name="mu-${n}_sig-1.1"
 
             sed -i -e "27s/.*/mu1 = ${n}/" params_ISiTGR_BIN.ini
             sed -i -e "28s/.*/mu2 = ${n}/" params_ISiTGR_BIN.ini
             sed -i -e "29s/.*/mu3 = ${n}/" params_ISiTGR_BIN.ini
             sed -i -e "30s/.*/mu4 = ${n}/" params_ISiTGR_BIN.ini
 
-            sed -i -e "39s/.*/Sigma1 = 0.1/" params_ISiTGR_BIN.ini
-            sed -i -e "40s/.*/Sigma2 = 0.1/" params_ISiTGR_BIN.ini
-            sed -i -e "41s/.*/Sigma3 = 0.1/" params_ISiTGR_BIN.ini
-            sed -i -e "42s/.*/Sigma4 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "39s/.*/Sigma1 = 1.1/" params_ISiTGR_BIN.ini
+            sed -i -e "40s/.*/Sigma2 = 1.1/" params_ISiTGR_BIN.ini
+            sed -i -e "41s/.*/Sigma3 = 1.1/" params_ISiTGR_BIN.ini
+            sed -i -e "42s/.*/Sigma4 = 1.1/" params_ISiTGR_BIN.ini
 
         elif [ $i -eq 3 ]
         then
@@ -60,12 +60,12 @@ do
                 continue
             fi
 
-            name="mu-0.1_sig-${n}"
+            name="mu-1.1_sig-${n}"
 
-            sed -i -e "27s/.*/mu1 = 0.1/" params_ISiTGR_BIN.ini
-            sed -i -e "28s/.*/mu2 = 0.1/" params_ISiTGR_BIN.ini
-            sed -i -e "29s/.*/mu3 = 0.1/" params_ISiTGR_BIN.ini
-            sed -i -e "30s/.*/mu4 = 0.1/" params_ISiTGR_BIN.ini
+            sed -i -e "27s/.*/mu1 = 1.1/" params_ISiTGR_BIN.ini
+            sed -i -e "28s/.*/mu2 = 1.1/" params_ISiTGR_BIN.ini
+            sed -i -e "29s/.*/mu3 = 1.1/" params_ISiTGR_BIN.ini
+            sed -i -e "30s/.*/mu4 = 1.1/" params_ISiTGR_BIN.ini
 
             sed -i -e "39s/.*/Sigma1 = ${n}/" params_ISiTGR_BIN.ini
             sed -i -e "40s/.*/Sigma2 = ${n}/" params_ISiTGR_BIN.ini
