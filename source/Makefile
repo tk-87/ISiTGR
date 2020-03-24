@@ -1,7 +1,7 @@
 
 OUTPUT_DIR ?= Release
 
-BUILD ?= MPI
+BUILD ?= #MPI
 #set BUILD to MPI to force MPI, should be set in ../Makefile
 
 #For ISiTGR CC = c compiler
@@ -338,4 +338,3 @@ $(highL)/libhigh.a:
 
 $(WMAP)/libwmap9.a:
 	cd $(WMAP); make libwmap9.a;
-
