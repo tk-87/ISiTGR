@@ -1,5 +1,101 @@
 [![N|Solid](https://www.utdallas.edu/~jdossett/images/banner_bkgd_isitgr3.jpg)](https://www.utdallas.edu/~jdossett/images/banner_bkgd_isitgr3.jpg)
 
+# ISiTGR Version 3.1 released in February 2020 (with python wrapper)
+We introduce a new version of **I**ntegrated **S**oftware **i**n **T**esting **G**eneral **R**elativity (ISiTGR) which is a patch to the software CAMB and CosmoMC. ISiTGR is intended to test deviations from GR at cosmological scales using available cosmological data sets. While doing so, it allows for various extensions to the standard flat LCDM model. In this new release, we have a combined support for the following:  
+
+* Dynamical dark energy parametrizations with a constant or time-dependent equation of state; 
+
+* A consistent implementation of anisotropic shear to model massive neutrinos throughout the full formalism;
+
+* Multiple commonly used parameterizations of modified growth (MG) parameters; 
+
+* Functional, binned and hybrid time- and scale-dependencies for all MG parameters (expanded from previous version); 
+
+* Spatially flat or curved backgrounds (present in previous version as well). 
+
+Additionally, **this new version of ISiTGR provides a python wrapper**. The python wrapper extends the original CAMB's python wrapper to work with the different MG parameterizations provided in ISiTGR, allowing the user to obtain the power spectra and transfer functions including phenomenological modified gravity parameters.
+
+The description of the formalism and its implementation in the CMB code, the Integrated Sachs-Wolfe (ISW) effect, and the 3x2 point statistics as well as examples of application to current data sets, can be found in the latest paper on the arXiv. A more technical description of the implementation can be found in the documentation provided in this repository. 
+
+## Installation (to run MCMC)
+The corresponding version of ISiTGR was built based on the CosmoMC July 2019 version. If you install ISiTGR from the principal folder, you will be allowed to do MCMC sampling to constraint modified gravity and cosmological parameters. To install ISiTGR from the GitHub repository you can run the following steps in your terminal :
+
+```sh
+$ git clone https://github.com/mishakb/ISiTGR
+$ cd ISiTGR
+Select your compilers by editing the Makefile files inside the principal folder, camb/fortran folder  and source folder.
+$ make
+```
+if there are no errors during compilation, then you should be ready to use ISiTGR.
+
+### Use ISiTGR to calculate cosmological observables
+If you want to compute cosmological observables using ISiTGR, then you should install ISiTGR as an extension to CAMB, in order to include MG parameters. 
+
+In this new version, ISiTGR can be installed using PyPI (https://pypi.org/project/isitgr/) by running
+```
+$ pip install isitgr [--user]
+```
+See also https://isitgr.readthedocs.io/en/latest/ for documentation and an example notebook for python-ISiTGR. 
+
+Alternatively, one can use ISiTGR by compiling the fortran code:
+
+```sh
+$ cd camb/fortran
+Select your compilers by editing the Makefile files inside the camb/fortran folder.
+$ make
+```
+if there are no errors during compilation, then you should be ready to use the fortran ISiTGR code by executing 
+```sh
+$ ./camb ../inifiles/params_MG.ini
+```
+
+In the next table we show some plots to illustrate the different power spectrums that can be produced using the ISiTGR patch for CAMB:
+
+Temperature and lensing potential power spectrum with (μ, η) | TT and TE power Spectrum with (μ, Σ)
+:------------------------:|:---------------------:
+![](https://imagizer.imageshack.com/img922/2492/OSyYNQ.png)   |![](https://imagizer.imageshack.com/img924/6177/MJeYME.png)  |
+
+
+## How to run ISiTGR
+The ISiTGR patch allows to run CAMB and CosmoMC for MG different models. The next flowchart shows the different parameterizations and methods that ISiTGR is able to work with:
+![Parametrizations](https://imagizer.imageshack.com/img922/5735/VwisJk.png)
+The user can take advantage of the ISiTGR capabilities after compiling the code by modifying the corresponding .ini files. The next flowchart shows the different .ini files that you need to modify in case you want to use the functional form or the binning methods for either CAMB or CosmoMC (you can find further instructions inside each of this files). 
+![Implementation](https://imagizer.imageshack.com/img921/710/TDBMMJ.png)
+It is important for the user to remember that the current version of ISiTGR is aimed to work with flat and non-flat models. Moreover, ISiTGR not only implements the contributions of massive neutrinos consistently, but also works with different equations of state for dark energy. The above mentioned is implemented for both functional form and binning methods. If the user wants to run the functional form of ISiTGR, the user needs to run 
+```
+./cosmomc test_ISiTGR.ini
+```
+Otherwise, if the you want to use binning methods, instead you should run 
+```
+./cosmomc test_ISiTGR_BIN.ini
+``` 
+
+In the next table we show some plots to illustrate some features of the ISiTGR patch for CosmoMC:
+
+Binning Methods |  MG + Curvature  |  Planck 2018 data 
+:-------------------------:|:------------------------:|:---------------------:
+![](https://imagizer.imageshack.com/img921/4875/UF2JJq.png)  |  ![](https://imagizer.imageshack.com/img922/3460/BnmcTM.png)  |![](https://imagizer.imageshack.com/img922/4962/o1LWlk.png)  |
+
+
+## Referencing ISiTGR
+
+We would ask that when using ISiTGR or a modified version of it, you please cite our papers: 
+* **ISiTGR: Testing deviations from GR at cosmological scales including dynamical dark energy, massive neutrinos, functional or binned parametrizations, and spatial curvature**: https://arxiv.org/abs/1908.00290  (current ISiTGR version)
+by: Cristhian Garcia-Quintero, Mustapha Ishak, Logan Fox and Jason Dossett.
+* **Spatial curvature and cosmological tests of general relativity**: https://arxiv.org/abs/1205.2422
+by: Jason Dossett and Mustapha Ishak 
+* **Testing General Relativity at Cosmological Scales: Implementation and Parameter Correlations**: https://arxiv.org/abs/1109.4583
+by: Jason Dossett, Mustapha Ishak and Jacob Moldenhauer
+ 
+as well as the original CAMB paper; the original CosmoMC paper; Additionally please cite the use of any other datasets already included in the original version of CosmoMC.
+## Contact
+
+If you have comments, questions, or feedback, please feel free to contact to the contributors of this repository: mishak@utdallas.edu or gqcristhian@utdallas.edu.
+
+<details>
+  <summary>Information from previous ISiTGR versions</summary>
+
+-------------------------------------------------------------
 # ISiTGR Version 3.01 released in September 2019
 We introduce a new version of **I**ntegrated **S**oftware **i**n **T**esting **G**eneral **R**elativity (ISiTGR) which is a patch to the software CAMB and CosmoMC. ISiTGR is intended to test deviations from GR at cosmological scales using available cosmological data sets. While doing so, it allows for various extensions to the standard flat LCDM model. In this new release, we have a combined support for the following:  
 
@@ -46,25 +142,7 @@ Angular power Spectrum for (μ, η) | Angular power Spectrum for (μ, η) allowi
 :------------------------:|:---------------------:
 ![](https://drive.google.com/uc?export=view&id=1lB5BRwO5uuTH9EvZvH_C1uUmdrkDdcXw)   |![](https://drive.google.com/uc?export=view&id=1RpZPqidQzZgYK7UWDzLmH_2MlvW0O9ZS)  |
 
-## Referencing ISiTGR
 
-We would ask that when using ISiTGR or a modified version of it, you please cite our papers: 
-* **ISiTGR: Testing deviations from GR at cosmological scales including dynamical dark energy, massive neutrinos, functional or binned parametrizations, and spatial curvature**: https://arxiv.org/abs/1908.00290  (current ISiTGR version)
-by: Cristhian Garcia-Quintero, Mustapha Ishak, Logan Fox and Jason Dossett.
-* **Spatial curvature and cosmological tests of general relativity**: https://arxiv.org/abs/1205.2422
-by: Jason Dossett and Mustapha Ishak 
-* **Testing General Relativity at Cosmological Scales: Implementation and Parameter Correlations**: https://arxiv.org/abs/1109.4583
-by: Jason Dossett, Mustapha Ishak and Jacob Moldenhauer
- 
-as well as the original CAMB paper; the original CosmoMC paper; Additionally please cite the use of any other datasets already included in the original version of CosmoMC.
-## Contact
-
-If you have comments, questions, or feedback, please feel free to contact to the contributors of this repository: mishak@utdallas.edu or gqcristhian@utdallas.edu.
-
-<details>
-  <summary>Information from previous ISiTGR versions</summary>
-
--------------------------------------------------------------
 # ISiTGR Version 3.00 released in July 2019
 ISiTGR version used in https://arxiv.org/abs/1908.00290 to reproduce Planck 2015 results. The ISiTGR version 3.01 includes minor updates to work with the Planck 2018 data.
 
