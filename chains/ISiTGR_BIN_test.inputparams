@@ -39,6 +39,7 @@ action = 4
 use_fast_slow = T
 test_likelihood = F
 temperature = 1
+test_output_root = test
 test_check_compare = 1184.788
 rand_seed = -1
 get_sigma8 = T
