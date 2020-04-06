@@ -1,5 +1,5 @@
- -log(Like) =    1078.6135516073277     
-  chi-sq    =    2157.2271032146555     
+ -log(Like) =    1078.6135998016623     
+  chi-sq    =    2157.2271996033246     
  
     1  0.2210000E-01   omegabh2              \Omega_b h^2
     2  0.1200000E+00   omegach2              \Omega_c h^2
@@ -92,11 +92,11 @@
    87  0.8318040E+01   zrei                  z_{\rm re}
    88  0.2111534E+01   A                     10^9 A_s
    89  0.1872763E+01   clamp                 10^9 A_s e^{-2\tau}
-   90  0.1236704E+04   DL40                  D_{40}
-   91  0.5703126E+04   DL220                 D_{220}
-   92  0.2521095E+04   DL810                 D_{810}
-   93  0.8080185E+03   DL1420                D_{1420}
-   94  0.2270112E+03   DL2000                D_{2000}
+   90  0.1236718E+04   DL40                  D_{40}
+   91  0.5703699E+04   DL220                 D_{220}
+   92  0.2521022E+04   DL810                 D_{810}
+   93  0.8080120E+03   DL1420                D_{1420}
+   94  0.2270102E+03   DL2000                D_{2000}
    95  0.9600000E+00   ns02                  n_{s,0.002}
    96  0.2452841E+00   yheused               Y_P
    97  0.2466102E+00   YpBBN                 Y_P^{\rm{BBN}}
@@ -135,14 +135,14 @@
   130  0.2986720E+00   fsigma8z233           f\sigma_8(2.33)
   131  0.3077136E+00   sigma8z233            \sigma_8(2.33)
   132  0.7485187E+03   chi2_BKPLANCK         \chi^2_{\rm BKPLANCK}
-  133  0.8797608E+01   chi2_lensing          \chi^2_{\rm lensing}
+  133  0.8797704E+01   chi2_lensing          \chi^2_{\rm lensing}
   134  0.1035339E+04   chi2_JLA              \chi^2_{\rm JLA}
   135  0.8738475E-01   chi2_6DF              \chi^2_{\rm 6DF}
   136  0.9265765E+00   chi2_MGS              \chi^2_{\rm MGS}
   137  0.5566717E+01   chi2_DR12BAO          \chi^2_{\rm DR12BAO}
   138  0.3576207E+03   chi2_DES              \chi^2_{\rm DES}
   139  0.3705545E+00   chi2_prior            \chi^2_{\rm prior}
-  140  0.7573163E+03   chi2_CMB              \chi^2_{\rm CMB}
+  140  0.7573164E+03   chi2_CMB              \chi^2_{\rm CMB}
   141  0.6580678E+01   chi2_BAO              \chi^2_{\rm BAO}
  
  -log(Like)     chi-sq   data
